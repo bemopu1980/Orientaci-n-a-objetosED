@@ -6,6 +6,7 @@
     class Alumno extends Persona implements asistencia
     {
         private $nia;
+        private $nota = true;
 
         public function getNia()
         {
@@ -15,13 +16,22 @@
         {
             $this->nia = $nia;
         }
+         public function getNotas()
+        {
+            return $this->notas;
+        }
+        public function setNotas($notas)
+        {
+            $this->notas = $notas;
+        }
 
         //Plomorfismo
         public function datos()
         {
             echo "<p style='color:red;'>ALUMNO:</p>";
             parent::datos(); //Invoco al metodo del padre.
-            echo "<br>Nia: ".$this->nia."<br>---------<br>";
+            echo "<br>Nia: ".$this->nia;
+            echo "<br>Calificación: ".$this->notas."<br>---------<br>";
         }
 
         public function asistio()
@@ -32,11 +42,19 @@
         {
             echo "Ausente";
         }
-
-        public function __construct($nombre, $apellido, $documento, $edad, $nia)
+        public function notas(){
+            if($this->notas = true){
+                echo "El alumno está aprobado.";
+            }else{
+                $this->notas = false;
+                echo "El alumno esta suspendido.";
+            }   
+        } 
+        public function __construct($nombre, $apellido, $documento, $edad, $nia, $notas)
         {
             parent::__construct($nombre, $apellido, $documento, $edad);
             $this->nia = $nia;
+            $this->notas = $notas;
         }
 
     }

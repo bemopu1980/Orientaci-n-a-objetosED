@@ -5,7 +5,7 @@
         protected $nombre;
         protected $apellido;
         protected $documento;
-        protected $edad;
+        protected $edad = true;
 
         //Métodos
         public function getNombre()
@@ -44,6 +44,14 @@
         {
             $this->edad = $edad;
         }
+         public function edad(){
+            if($this->edad > 18){
+                echo "El alumno es mayor de edad.";
+            }else{
+                $this->edad = false;
+                echo "El alumno es menor de edad.";
+            }   
+        } 
 
 
         public function __construct($nombre, $apellido, $documento, $edad)
